@@ -44,4 +44,7 @@ end
 
 group :test do
   gem 'capybara', '1.1.2'
+  gem 'pry-rails'
+  gem 'pry-doc'
+  gem 'pry-debugger'
 end
