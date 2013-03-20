@@ -57,4 +57,5 @@ Grocr::Application.routes.draw do
   # match ':controller(/:action(/:id))(.:format)'
   root :to => "items#index"
   resources :items
+  resources :products
 end
