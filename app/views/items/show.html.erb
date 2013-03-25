@@ -1,2 +1,5 @@
-<h2>Product ID: <%= @item.product_id %></h2>
-<h2>Quantity: <%= @item.quantity %></h2>
+<%= link_to "Remove Item", item_path(@item), :method => :delete,
+  :data => {:confirm => "Are you sure you want to delete this item?" } %>
+<h3>Item ID: <%= @item.id %></h3>
+<h3>Product ID: <%= @item.product_id %></h3>
+<h3>Quantity: <%= @item.quantity %></h3>

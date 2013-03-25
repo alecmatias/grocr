@@ -1,6 +1,12 @@
 Grocr::Application.routes.draw do
   devise_for :users
 
+  resources :items do
+    collection do
+      delete :remove #DELETE /items/remove => items#remove
+    end
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
