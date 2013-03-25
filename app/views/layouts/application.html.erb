@@ -13,7 +13,7 @@
   	<!-- Set the viewport width to device width for mobile -->
   	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  	<title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+  	<title><%= content_for?(:title) ? yield(:title) : "Grocr" %></title>
 
   	<%= stylesheet_link_tag    "application" %>
   	<%= javascript_include_tag "vendor/custom.modernizr" %>
@@ -21,20 +21,33 @@
   </head>
 
   <body>
-    <% flash.each do |key, value| %>
-      <div class='flash' id='<%= key %>'>
-        <%= value %>
+    <div class="row">
+      <div class="small-9 columns"><h1><%= link_to "grocr", root_url %></h1></div>
+      <div class="small-3 columns">
+        <nav>
+          <% if user_signed_in? %>
+            Signed in as <%= current_user.email %>
+          <% else %>
+            <ul class="button-group">
+              <li><%= link_to "Sign up", new_user_registration_path, :class => "small button" %></li>
+              <li><%= link_to "Sign in", new_user_session_path, :class => "small button" %></li>
+            </ul>
+          <% end %>
+        </nav>
       </div>
-    <% end %>
-    <nav>
-      <% if user_signed_in? %>
-        Signed in as <%= current_user.email %>
-      <% else %>
-        <%= link_to "Sign up", new_user_registration_path %>
-        <%= link_to "Sign in", new_user_session_path %>
-      <% end %>
-    </nav>
-    <%= yield %>
+    </div>
+    <div class="row">
+      <div class="small-12 columns">
+        <% flash.each do |key, value| %>
+          <div class='flash' id='<%= key %>'>
+            <%= value %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="row">
+      <%= yield %>
+    </div>
 
     <%= javascript_include_tag "application" %>
   </body>
