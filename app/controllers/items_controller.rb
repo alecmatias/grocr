@@ -1,5 +1,7 @@
 class ItemsController < ApplicationController
 
+  before_filter :authenticate_user!, :only => [:index, :show]
+
   def index
     @items = Item.all
   end
