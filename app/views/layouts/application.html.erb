@@ -13,7 +13,7 @@
   	<!-- Set the viewport width to device width for mobile -->
   	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  	<title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+  	<title><%= content_for?(:title) ? yield(:title) : "Grocr" %></title>
 
   	<%= stylesheet_link_tag    "application" %>
   	<%= javascript_include_tag "vendor/custom.modernizr" %>
@@ -28,14 +28,14 @@
     <% end %>
     <nav>
       <% if user_signed_in? %>
-        Signed in as <%= current_user.email %>
+        Signed in as <%= current_user.email %><br>
+        <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
       <% else %>
         <%= link_to "Sign up", new_user_registration_path %>
         <%= link_to "Sign in", new_user_session_path %>
       <% end %>
     </nav>
     <%= yield %>
-
     <%= javascript_include_tag "application" %>
   </body>
 </html>

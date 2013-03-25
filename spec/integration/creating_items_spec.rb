@@ -1,6 +1,12 @@
 require 'spec_helper'
 
 feature "Creating Items" do
+  let!(:user) {Factory(:user)}
+
+  before do
+    sign_in_as!(user)
+  end
+
   scenario "can create an item" do
     visit '/' #index action
     click_link "Add an Item" #new action

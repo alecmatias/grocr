@@ -1,15 +1,17 @@
 class ItemsController < ApplicationController
 
+  before_filter :authenticate_user!, :only => [:index, :show, :new, :create]
+
   def index
-    @items = Item.all
+    @item = current_user.items.all
   end
 
   def new
-    @item = Item.new
+    @item = current_user.items.new
   end
 
   def create
-    @item = Item.new(params[:item])
+    @item = current_user.items.new(params[:item])
 
     if @item.save
       @product_id = params[:item][:product_id]
