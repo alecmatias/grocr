@@ -8,4 +8,11 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
   # attr_accessible :title, :body
+
+  has_one :list
+  #create a list when you create the user
+  before_create :build_list
+
+  has_many :items, :through => :list
+
 end

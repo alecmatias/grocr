@@ -14,7 +14,7 @@
       <th>Quantity</th>
     </thead>
     <tbody>
-      <% @items.each do |item| %>
+      <% current_user.items.each do |item| %>
         <tr class='<%= cycle("odd", "even") %>' id='item_<%= item.id %>'>
           <td>
             <%= check_box_tag "items[#{item.product_id}]", "#{item.id}" %>

@@ -16,7 +16,6 @@ feature "Viewing Items" do
     click_link "Sign out"
     sign_in_as!(user2)
     visit '/'
-    save_and_open_page
     page.should_not have_content('123')
     page.should_not have_css('#items[123]')
   end

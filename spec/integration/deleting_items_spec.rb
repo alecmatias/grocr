@@ -8,7 +8,7 @@ feature "Deleting items" do
   end
 
   scenario "Removing an individual item" do
-    Factory(:item, :product_id => 101, :quantity => 12)
+    Factory(:item, :list => user.list, :product_id => 101, :quantity => 12)
     visit "/"
     click_link "101"
     click_link "Remove Item"
@@ -16,13 +16,13 @@ feature "Deleting items" do
   end
 
   scenario "Deleting multiple items from a list" do
-    Factory(:item, :product_id => 111, :quantity => 1)
-    Factory(:item, :product_id => 112, :quantity => 2)
-    Factory(:item, :product_id => 113, :quantity => 2)
-    Factory(:item, :product_id => 114, :quantity => 1)
+    Factory(:item, :list => user.list, :product_id => 111, :quantity => 1)
+    Factory(:item, :list => user.list, :product_id => 112, :quantity => 2)
+    Factory(:item, :list => user.list, :product_id => 113, :quantity => 2)
+    Factory(:item, :list => user.list, :product_id => 114, :quantity => 1)
 
     visit "/"
-
+    save_and_open_page
     check('items[111]')
     check('items[113]')
 
