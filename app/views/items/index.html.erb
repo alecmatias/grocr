@@ -3,3 +3,31 @@
 <%= link_to "List products", "/products" %>
 <p>
 <%= link_to "Add a new product", new_product_path %>
+<br>
+<h3>Items</h3>
+<table id="items">
+  <thead>
+    <th></th>
+    <th>Item ID</th>
+    <th>Product ID</th>
+    <th>Quantity</th>
+  </thead>
+  <tbody>
+    <% @items.each do |item| %>
+      <tr class='<%= cycle("odd", "even") %>' id='item_<%= item.id %>'>
+        <td>
+          <%#= check_box_tag "items[#{item.product_id}][#{item.id}]" %>
+        </td>
+        <td>
+          <%= item.id %>
+        </td>
+        <td>
+          <%= link_to item.product_id, item %>
+        </td>
+        <td>
+          <%= item.quantity %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
