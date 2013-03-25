@@ -1,20 +1,3 @@
 <h2>New Product</h2>
-<%= form_for(@product) do |f| %>
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  <p>
-    <%= f.label :manufacturer %><br />
-    <%= f.text_field :manufacturer %>
-  <p>
-    <%= f.label :price %><br />
-    <%= f.text_field :price %>
-  <p>
-    <%= f.label :size %><br />
-    <%= f.text_field :size %>
-  <p>
-    <%= f.label :upc %><br />
-    <%= f.text_field :upc %>
-  <%= f.submit %>>
+<%= render "form" %>
 
-<% end %>

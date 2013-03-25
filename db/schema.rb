@@ -26,8 +26,9 @@ ActiveRecord::Schema.define(:version => 20130325043030) do
     t.integer  "price"
     t.string   "size"
     t.string   "upc"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+    t.string   "productImageUrl"
   end
 
   create_table "users", :force => true do |t|

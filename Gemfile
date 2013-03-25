@@ -45,11 +45,14 @@ group :test, :development do
 end
 
 group :test do
+  gem 'factory_girl', '2.6.4'
   gem 'capybara', '1.1.2'
   gem 'pry-rails'
   gem 'pry-doc'
   gem 'factory_girl', '2.6.4'
 #  gem 'pry-debugger'
 end
+
+gem 'money'
 
 gem 'rb-readline'

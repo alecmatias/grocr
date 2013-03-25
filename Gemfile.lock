@@ -76,6 +76,8 @@ GEM
       treetop (~> 1.4.8)
     method_source (0.8.1)
     mime-types (1.21)
+    money (5.1.1)
+      i18n (~> 0.6.0)
     multi_json (1.7.1)
     nokogiri (1.5.7)
     orm_adapter (0.0.7)
@@ -176,6 +178,7 @@ DEPENDENCIES
   email_spec (= 1.2.1)
   factory_girl (= 2.6.4)
   jquery-rails
+  money
   pry-doc
   pry-rails
   rails (= 3.2.12)
