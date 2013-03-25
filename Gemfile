@@ -6,6 +6,8 @@ gem 'rails', '3.2.12'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
+gem 'devise', '2.1.0'
+gem 'email_spec', '1.2.1'
 
 
 # Gems used only for assets and not required
@@ -46,6 +48,7 @@ group :test do
   gem 'capybara', '1.1.2'
   gem 'pry-rails'
   gem 'pry-doc'
+  gem 'factory_girl', '2.6.4'
 #  gem 'pry-debugger'
 end
 
