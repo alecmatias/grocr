@@ -11,29 +11,29 @@
 #admin_user.confirm!
 
 Product.create(
-               :name => "Seeded Product 1", 
-               :manufacturer => "M1", 
+               :name => "Seeded Product 1",
+               :manufacturer => "M1",
                :price => "$3.69",
                :size  => "large",
-               :upc => "324234234242"
+               :upc => "324234234242",
                :description => "Product number one!"
                )
 
 Product.create(
-               :name => "Seeded Product 2", 
-               :manufacturer => "M2", 
+               :name => "Seeded Product 2",
+               :manufacturer => "M2",
                :price => "5.99",
                :size  => "medium",
-               :upc => "78686876876"
+               :upc => "78686876876",
                :description => "Product number two!"
                )
 
 Product.create(
-               :name => "Seeded Product 3", 
-               :manufacturer => "M3", 
+               :name => "Seeded Product 3",
+               :manufacturer => "M3",
                :price => "$19.99",
                :size  => "small",
-               :upc => "65466546456"
+               :upc => "65466546456",
                :description => "Product number three!"
                )
 

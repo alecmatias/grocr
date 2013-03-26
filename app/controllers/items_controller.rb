@@ -14,8 +14,7 @@ class ItemsController < ApplicationController
     @item = current_user.items.new(params[:item])
 
     if @item.save
-      @product_id = params[:item][:product_id]
-      flash[:notice] = "Item #{@product_id} has been added."
+      flash[:notice] = "Item #{@item.product.id} has been added."
       redirect_to @item
     end
   end

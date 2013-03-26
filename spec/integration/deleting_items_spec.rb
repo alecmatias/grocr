@@ -16,16 +16,21 @@ feature "Deleting items" do
   end
 
   scenario "Deleting multiple items from a list" do
-    Factory(:item, :list => user.list, :product_id => 111, :quantity => 1)
-    Factory(:item, :list => user.list, :product_id => 112, :quantity => 2)
-    Factory(:item, :list => user.list, :product_id => 113, :quantity => 2)
-    Factory(:item, :list => user.list, :product_id => 114, :quantity => 1)
+    p1 = Factory(:product)
+    p2 = Factory(:product)
+    p3 = Factory(:product)
+    p4 = Factory(:product)
+
+    Factory(:item, :list => user.list, :product => p1, :quantity => 1)
+    Factory(:item, :list => user.list, :product => p2, :quantity => 2)
+    Factory(:item, :list => user.list, :product => p3, :quantity => 2)
+    Factory(:item, :list => user.list, :product => p4, :quantity => 1)
 
     visit "/"
-    check('items[111]')
-    check('items[113]')
+    check("items[#{p1.id}]")
+    check("items[#{p3.id}]")
 
     click_button("Remove Checked")
-    page.should have_content("Items 111, 113 have been removed.");
+    page.should have_content("Items #{p1.id}, #{p3.id} have been removed.");
   end
 end
