@@ -22,7 +22,6 @@ feature "Deleting items" do
     Factory(:item, :list => user.list, :product_id => 114, :quantity => 1)
 
     visit "/"
-    save_and_open_page
     check('items[111]')
     check('items[113]')
 

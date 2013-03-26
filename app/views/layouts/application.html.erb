@@ -21,21 +21,35 @@
   </head>
 
   <body>
-    <% flash.each do |key, value| %>
-      <div class='flash' id='<%= key %>'>
-        <%= value %>
+    <div class="row">
+      <div class="small-9 columns"><h1><%= link_to "grocr", root_url %></h1></div>
+      <div class="small-3 columns">
+        <nav>
+          <% if user_signed_in? %>
+            Signed in as <%= current_user.email %>
+            <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+          <% else %>
+            <ul class="button-group">
+              <li><%= link_to "Sign up", new_user_registration_path, :class => "small button" %></li>
+              <li><%= link_to "Sign in", new_user_session_path, :class => "small button" %></li>
+            </ul>
+          <% end %>
+        </nav>
       </div>
-    <% end %>
-    <nav>
-      <% if user_signed_in? %>
-        Signed in as <%= current_user.email %><br>
-        <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-      <% else %>
-        <%= link_to "Sign up", new_user_registration_path %>
-        <%= link_to "Sign in", new_user_session_path %>
-      <% end %>
-    </nav>
-    <%= yield %>
+    </div>
+    <div class="row">
+      <div class="small-12 columns">
+        <% flash.each do |key, value| %>
+          <div class='flash' id='<%= key %>'>
+            <%= value %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="row">
+      <%= yield %>
+    </div>
+
     <%= javascript_include_tag "application" %>
   </body>
 </html>

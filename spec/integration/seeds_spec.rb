@@ -1,6 +1,12 @@
 require 'spec_helper'
 
 feature "Seeding database" do
+  let!(:user) {Factory(:user)}
+
+  before do
+    sign_in_as!(user)
+  end
+
   scenario "List a product" do
     load Rails.root + "db/seeds.rb"
     visit '/'
