@@ -1,5 +1,7 @@
 class ProductsController < ApplicationController
   before_filter :find_product, :only => [:show, :edit,  :update, :destroy]
+  before_filter :authorize_admin!, :except => [:index, :show]
+  before_filter :find_product, :only => [:show, :edit, :update, :destroy]
 
   def index
     @products= Product.all
@@ -47,4 +49,13 @@ class ProductsController < ApplicationController
     flash[:alert] = "The product you were looking for could not be found."
     redirect_to products_path
   end
+
+  private
+    def authorize_admin!
+      authenticate_user!
+      unless current_user.admin?
+        flash[:alert] = "You must be an admin to do that."
+        redirect_to root_path
+      end
+    end
 end

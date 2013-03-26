@@ -3,6 +3,7 @@ require 'spec_helper'
 feature "Editing Products" do
 
   before do
+    sign_in_as!(Factory(:admin_user))
     Factory(:product, :name => "SomeProduct")
     visit "/products"
     click_link "SomeProduct"

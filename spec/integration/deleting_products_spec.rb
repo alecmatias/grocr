@@ -1,6 +1,11 @@
 require 'spec_helper'
 
 feature "Deleting products" do
+
+  before do
+    sign_in_as!(Factory(:admin_user))
+  end
+
   scenario "Deleting a product" do
     Factory(:product, :name => "Pepsi")
     visit "/products"

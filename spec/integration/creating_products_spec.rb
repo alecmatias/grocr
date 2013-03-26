@@ -1,10 +1,9 @@
 require 'spec_helper'
 
 feature 'Creating Products'  do
-  let!(:user) {Factory(:user)}
 
   before do
-    sign_in_as!(user)
+    sign_in_as!(Factory(:admin_user))
   end
 
   scenario "Can create a product" do
