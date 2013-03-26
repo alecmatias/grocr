@@ -1,9 +1,15 @@
-<%= link_to "Add an Item to your list", new_item_path %>
 <p>
-<%= link_to "List products", "/products" %>
+  <%= link_to "Add an Item to your list", new_item_path %>
+</p>
 <p>
-<%= link_to "Add a new product", new_product_path %>
-<br>
+  <%= link_to "List products", "/products" %>
+</p>
+<p>
+  <% admins_only do %>
+    <%= link_to "Add a new product", new_product_path %>
+  <% end %>
+</p>
+<br/>
 <h3>Items</h3>
 <%= form_tag remove_items_path, :method => :delete do %>
   <table id="items">
