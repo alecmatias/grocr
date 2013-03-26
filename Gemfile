@@ -57,5 +57,3 @@ end
 gem 'money'
 
 gem 'rb-readline'
-
-gem 'haml'

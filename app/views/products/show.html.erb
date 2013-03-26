@@ -1,4 +1,6 @@
 <h2><%= @product.name %></h2>
+
+<%= render "form" %>
 <%= link_to "Edit Product", edit_product_path(@product) %>
 <%= link_to "Delete Product",
     product_path(@product),
