@@ -7,15 +7,20 @@ class ItemsController < ApplicationController
   end
 
   def new
-    @item = current_user.items.new
+    @list = current_user.list
+    @products = Product.all
   end
 
   def create
-    @item = current_user.items.new(params[:item])
+    @product = Product.find(params[:product])
+    @item = current_user.list.items.new(:product => @product, :quantity => 1)
 
     if @item.save
-      flash[:notice] = "Item #{@item.product.id} has been added."
-      redirect_to @item
+      flash[:notice] = "Items #{@product.id} has been added."
+      redirect_to new_item_path
+    else
+      flash[:alert] = "Item has not been added."
+      redirect_to new_item_path #just showing the HTML for it, doesn't do controller logic
     end
   end
 
@@ -23,7 +28,7 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @item.destroy
     flash[:notice] = "Item has been removed."
-    redirect_to items_path
+    redirect_to new_item_path
   end
 
   def remove #removes multiple items
