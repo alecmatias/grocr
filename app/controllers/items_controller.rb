@@ -16,7 +16,7 @@ class ItemsController < ApplicationController
     @item = current_user.list.items.new(:product => @product, :quantity => 1)
 
     if @item.save
-      flash[:notice] = "Items #{@product.id} has been added."
+      flash[:notice] = "Item #{@product.id} has been added to your list."
       redirect_to new_item_path
     else
       flash[:alert] = "Item has not been added."
@@ -27,7 +27,7 @@ class ItemsController < ApplicationController
   def destroy
     @item = Item.find(params[:id])
     @item.destroy
-    flash[:notice] = "Item has been removed."
+    flash[:notice] = "Item #{@item.product_id} has been removed."
     redirect_to new_item_path
   end
 

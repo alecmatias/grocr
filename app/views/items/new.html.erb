@@ -11,9 +11,11 @@
         <tr class='<%= cycle("odd", "even") %>' id='product_<%= p.id %>'>
           <td>
             <% if item = @list.has_item?(p) %>
-              <%= link_to "Remove", item_path(item), :method => "delete" %>
+              <%= link_to "Remove", item_path(item), :method => "delete",
+              :id => "remove_product#{p.id}" %>
             <% else %>
-              <%= link_to "Add", items_path(:product => p), :method => "post" %>
+              <%= link_to "Add", items_path(:product => p), :method => "post",
+              :id => "add_product#{p.id}" %>
             <% end %>
           </td>
           <td>

@@ -9,10 +9,9 @@ feature "Viewing Items" do
     sign_in_as!(user)
     visit '/'
     click_link "Add an Item" #new action
-    fill_in 'Product ID', :with => product.id
-    fill_in 'Quantity', :with => 2
-    click_button 'Create Item'
-    page.should have_content("Item #{product.id} has been added.")
+    click_link "add_product#{product.id}"
+    #click_button 'Create Item'
+    page.should have_content("Item #{product.id} has been added to your list.")
 
     click_link "Sign out"
     sign_in_as!(user2)

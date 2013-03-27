@@ -12,10 +12,10 @@ feature "Deleting items" do
     visit "/"
     click_link "101"
     click_link "Remove Item"
-    page.should have_content("Item has been removed.")
+    page.should have_content("Item 101 has been removed.")
   end
 
-  scenario "Deleting multiple items from a list" do
+  scenario "Deleting multiple items from your list using the index page" do
     p1 = Factory(:product)
     p2 = Factory(:product)
     p3 = Factory(:product)
@@ -32,5 +32,23 @@ feature "Deleting items" do
 
     click_button("Remove Checked")
     page.should have_content("Items #{p1.id}, #{p3.id} have been removed.");
+  end
+
+  scenario "Removing multiple items from your list using the catalog" do
+    p1 = Factory(:product)
+    p2 = Factory(:product)
+    p3 = Factory(:product)
+    p4 = Factory(:product)
+
+    Factory(:item, :list => user.list, :product => p1, :quantity => 1)
+    Factory(:item, :list => user.list, :product => p2, :quantity => 2)
+    Factory(:item, :list => user.list, :product => p3, :quantity => 2)
+    Factory(:item, :list => user.list, :product => p4, :quantity => 1)
+
+    visit "/"
+    click_link "Add an Item"
+
+    click_link "remove_product#{p3.id}"
+    page.should have_content("Item #{p3.id} has been removed.");
   end
 end
