@@ -1,0 +1,23 @@
+<div class="product">
+  <p class="product_name">
+    <%= @product.name %>
+  <p>
+    <div class="product_description_header">
+      Description:
+    </div>
+    <div class="product_description">
+      <%= @product.description.html_safe %>
+    </div>
+  </p>
+  <p class="product_price">
+    Price: <%= @product.price %>
+  </p>
+  <div class="product_more_info">
+    <p>
+      Size: <%= @product.size %>
+    <p>
+      UPC: <%= @product.upc %>
+    <p>
+      Manufacturered by<%= @product.manufacturer %>
+  </div>
+</div>

@@ -1,4 +1,5 @@
 
+
 <h2><%= @product.name %></h2>
 <% admins_only do %>
   <%= link_to "Edit Product", edit_product_path(@product) %>
@@ -21,4 +22,4 @@
   </div>
 <% end %>
 
-<%= render "form" %>
+<%= render "show_product_form" %>
