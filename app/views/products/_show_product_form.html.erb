@@ -1,0 +1,32 @@
+<% if @product.image.exists? %>
+  <h3>Attached Image</h3>
+  <div id="product" class="image">
+    <img src='<%= @product.image.url %>'>
+    <p>
+      <%= link_to File.basename(@product.image.path),@product.image.url %>
+    </p>
+    <p><small><%= number_to_human_size(@product.image.size) %>
+	(<%= @product.image.content_type %>)</small></p>
+  </div>
+<% end %>
+<p>
+<div class="product">
+    <div class="product_description_header">
+      Description:
+    </div>
+    <div class="product_description">
+      <%= @product.description.html_safe %>
+    </div>
+  </p>
+  <p class="product_price">
+    Price: <%= number_to_currency(@product.price) %>
+  </p>
+  <div class="product_more_info">
+    <p>
+      Size: <%= @product.size %>
+    <p>
+      UPC: <%= @product.upc %>
+    <p>
+      Manufacturered by: <%= @product.manufacturer %>
+  </div>
+</div>

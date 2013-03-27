@@ -17,8 +17,8 @@ feature 'Creating Products'  do
     attach_file "Image", "spec/fixtures/peanut_butter.jpg"
     click_button 'Create Product'
     page.should have_content('Product has been created')
-    within ("#ticket .asset") do
+#    within ("#product .image") do
       page.should have_content("peanut_butter.jpg")
-    end
+#    end
   end
 end

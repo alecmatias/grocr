@@ -11,8 +11,8 @@ feature "Seeding database" do
     load Rails.root + "db/seeds.rb"
     visit '/'
     click_link 'List products'
-    page.should have_content 'Seeded Product 1'
-    page.should have_content 'Seeded Product 2'
-    page.should have_content 'Seeded Product 3'
+    page.should have_content 'Brawny Paper Towels'
+    page.should have_content 'Bounty Paper Towels'
+    page.should have_content 'Scott Paper Towels'
   end
 end

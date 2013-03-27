@@ -54,6 +54,7 @@ group :test do
   gem 'factory_girl', '2.6.4'
 end
 
-gem 'money'
-
 gem 'rb-readline'
+
+
+gem 'paperclip', '2.7.0'
