@@ -54,8 +54,6 @@ group :test do
 #  gem 'pry-debugger'
 end
 
-gem 'money'
-
 gem 'rb-readline'
 
 
