@@ -57,3 +57,6 @@ end
 gem 'money'
 
 gem 'rb-readline'
+
+
+gem 'paperclip', '2.7.0'
