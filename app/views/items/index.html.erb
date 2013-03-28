@@ -1,38 +1,36 @@
 <div class="small-12 columns small-centered user-list-view">
-  <p>
-    <%= link_to "Add an Item to your list", new_item_path, :class => "small button radius" %>
-  </p>
-  <p>
-    <%= link_to "List products", "/products", :class => "small button radius" %>
-  </p>
-  <p>
-    <% admins_only do %>
-      <%= link_to "Add a new product", new_product_path %>
-    <% end %>
-  </p>
-  <br/>
-  <h3>Your WishElist</h3>
-  <%= form_tag remove_items_path, :method => :delete do %>
-    <table id="items">
-      <tbody>
-        <% current_user.items.each do |item| %>
-          <tr class='<%= cycle("odd", "even") %>' id='item_<%= item.id %>'>
-            <td>
-              <%= check_box_tag "items[#{item.product_id}]", "#{item.id}" %>
-            </td>
-            <td>
-              <%= item.id %>
-            </td>
-            <td>
-              <%= link_to item.product_id, item %>
-            </td>
-            <td>
+  <% admins_only do %>
+    <p><%= link_to "List products", "/products", :class => "small button radius" %></p>
+    <p><%= link_to "Add a new product", new_product_path %></p>
+  <% end %>
+  <% if user_signed_in? %>
+    <% if current_user.items.length == 0 %>
+      <h3 class="to-start">To start...</h3>
+      <%= link_to "Add an Item to your list", new_item_path, :class => "large button radius" %>
+    <% else %>
+      <h3>Your WishElist</h3>
+      <%= link_to "Add an Item to your list", new_item_path, :class => "small button radius add-button success" %>
+      <%= form_tag remove_items_path, :method => :delete do %>
+        <ul id="items" class="list-layout">
+          <% current_user.items.each do |item| %>
+            <li class="cf" id='item_<%= item.id %>'>
+              <%= check_box_tag "items[#{item.product_id}]", "#{item.id}" %> |
+              <%= item.id %> |
+              <%= link_to item.product_id, item %> |
               <%= item.quantity %>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-    <%= submit_tag "Remove Checked", :class => "button radius alert small" %>
+            </li>
+          <% end %>
+        </ul>
+        <%= submit_tag "Remove Checked", :class => "button radius alert small" %>
+      <% end %>
+    <% end %>
+  <% else %>
+    <div class="introduction">
+    <h3>Sign up to begin building your WishElist.</h3>
+      <%= link_to "Sign up", new_user_registration_path, :remote => true, :data => { :replace => "#modal-container", "reveal-id" => "myModal" }, :class => "large button success radius" %>
+      <div class="sign-in-container">
+        ...or alternatively,&nbsp; <%= link_to "Sign in", new_user_session_path, :remote => true, :data => { :replace => "#modal-container", "reveal-id" => "myModal" }, :class => "tiny button" %>
+      </div>
+    </div>
   <% end %>
 </div>

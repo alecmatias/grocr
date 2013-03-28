@@ -1,10 +1,10 @@
-<div class="small-10 columns small-centered">
-  <h2>Add an Item</h2>
+<div class="small-12 columns small-centered user-list-view">
+  <h3>Add an Item</h3>
 
-  <ul id="productlist">
+  <ul id="productlist" class="list-layout">
     <div class="row">
     <% @products.each do |p|  %>
-      <li class='<%= cycle("odd", "even") %> cf' id='product_<%= p.id %>'>
+      <li class="cf" id='product_<%= p.id %>'>
         <div class="small-1 columns">
           <% if item = @list.has_item?(p) %>
             <%= link_to "Remove", item_path(item), :method => "delete",
@@ -15,7 +15,7 @@
           <% end %>
         </div>
         <div class="small-11 columns">
-          <h3><%= p.name %></h3>
+          <h4><%= p.name %></h4>
           <%= raw p.description %>
         </div>
       </li>

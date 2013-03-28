@@ -30,10 +30,12 @@
             Signed in as <em><%= current_user.email %></em>
             <%= link_to "Sign out", destroy_user_session_path, method: :delete, :class => "small button" %>
           <% else %>
+            <!--
             <ul class="button-group">
               <li><%= link_to "Sign up", new_user_registration_path, :remote => true, :data => { :replace => "#modal-container", "reveal-id" => "myModal" }, :class => "small button" %></li>
               <li><%= link_to "Sign in", new_user_session_path, :remote => true, :data => { :replace => "#modal-container", "reveal-id" => "myModal" }, :class => "small button" %></li>
             </ul>
+            -->
           <% end %>
         </nav>
         <div id="myModal" class="reveal-modal">

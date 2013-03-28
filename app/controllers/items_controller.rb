@@ -1,9 +1,11 @@
 class ItemsController < ApplicationController
 
-  before_filter :authenticate_user!, :only => [:index, :show, :new, :create]
+  before_filter :authenticate_user!, :only => [:show, :new, :create]
 
   def index
-    @item = current_user.items.all
+    if current_user
+      @item = current_user.items.all
+    end
   end
 
   def new

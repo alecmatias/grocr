@@ -66,3 +66,45 @@ ul, li {
 .cf {
     *zoom: 1;
 }
+
+.user-list-view {
+
+}
+
+.list-layout {
+  background: #fff;
+  border: 1px solid #888;
+  border-radius: 10px;
+  text-align: center;
+}
+
+#productlist.list-layout {
+  text-align: left;
+}
+
+.list-layout li {
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0;
+}
+
+.list-layout li:last-child {
+  border-bottom: none;
+}
+
+.row .list-layout .row {
+  margin: 0;
+}
+
+.list-layout .small-11 {
+  padding-left: 40px !important;
+}
+
+.remember-me {
+  display: inline-block;
+}
+
+.flash.label {
+  text-align: center;
+  padding: 10px;
+  font-weight: 300;
+}
