@@ -1,8 +1,10 @@
 <div class="small-12 columns small-centered user-list-view">
   <% admins_only do %>
-    <h5>Admin Actions:</h5>
-    <%= link_to "List products", "/products", :class => "small button radius admin" %>
-    <%= link_to "Add a new product", new_product_path, :class => "small button admin" %>
+    <div class="admin-actions">
+      Admin:
+      <%= link_to "List products", "/products", :class => "small button radius admin" %>
+      <%= link_to "Add a new product", new_product_path, :class => "small button admin" %>
+    </div>
   <% end %>
   <% if user_signed_in? %>
     <% if current_user.items.length == 0 %>
@@ -17,12 +19,10 @@
             <li class="cf" id='item_<%= item.id %>'>
               <% product = Product.find(item.product_id) %>
               <%= check_box_tag "items[#{product.id}]", "#{item.id}" %>
-              <%= product.manufacturer %> -
-              <%= link_to product.name, item %> -
-              $<%= product.price %>
               <div class="image">
                 <img src='<%= product.image.url %>'>
               </div>
+              <p><%= link_to product.name, item %> by <%= product.manufacturer %> $<%= product.price %></p>
             </li>
           <% end %>
         </ul>
