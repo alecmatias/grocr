@@ -25,9 +25,9 @@
     <div class="row">
       <div class="small-6 columns"><h1><%= link_to "WishElist", root_url %></h1></div>
       <div class="small-6 columns">
-        <nav>
+        <nav class="subheader">
           <% if user_signed_in? %>
-            Signed in as <%= current_user.email %>
+            Signed in as <em><%= current_user.email %></em>
             <%= link_to "Sign out", destroy_user_session_path, method: :delete, :class => "small button" %>
           <% else %>
             <ul class="button-group">

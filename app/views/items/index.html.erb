@@ -1,36 +1,38 @@
-<p>
-  <%= link_to "Add an Item to your list", new_item_path, :class => "small button radius" %>
-</p>
-<p>
-  <%= link_to "List products", "/products", :class => "small button radius" %>
-</p>
-<p>
-  <% admins_only do %>
-    <%= link_to "Add a new product", new_product_path %>
+<div class="small-12 columns small-centered user-list-view">
+  <p>
+    <%= link_to "Add an Item to your list", new_item_path, :class => "small button radius" %>
+  </p>
+  <p>
+    <%= link_to "List products", "/products", :class => "small button radius" %>
+  </p>
+  <p>
+    <% admins_only do %>
+      <%= link_to "Add a new product", new_product_path %>
+    <% end %>
+  </p>
+  <br/>
+  <h3>Your WishElist</h3>
+  <%= form_tag remove_items_path, :method => :delete do %>
+    <table id="items">
+      <tbody>
+        <% current_user.items.each do |item| %>
+          <tr class='<%= cycle("odd", "even") %>' id='item_<%= item.id %>'>
+            <td>
+              <%= check_box_tag "items[#{item.product_id}]", "#{item.id}" %>
+            </td>
+            <td>
+              <%= item.id %>
+            </td>
+            <td>
+              <%= link_to item.product_id, item %>
+            </td>
+            <td>
+              <%= item.quantity %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= submit_tag "Remove Checked", :class => "button radius alert small" %>
   <% end %>
-</p>
-<br/>
-<h3>Your WishElist</h3>
-<%= form_tag remove_items_path, :method => :delete do %>
-  <table id="items">
-    <tbody>
-      <% current_user.items.each do |item| %>
-        <tr class='<%= cycle("odd", "even") %>' id='item_<%= item.id %>'>
-          <td>
-            <%= check_box_tag "items[#{item.product_id}]", "#{item.id}" %>
-          </td>
-          <td>
-            <%= item.id %>
-          </td>
-          <td>
-            <%= link_to item.product_id, item %>
-          </td>
-          <td>
-            <%= item.quantity %>
-          </td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-  <%= submit_tag "Remove Checked" %>
-<% end %>
+</div>

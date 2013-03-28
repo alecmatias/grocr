@@ -12,6 +12,14 @@
  *= require_tree .
  *= require foundation_and_overrides
  */
+html {
+  background: #57666D url(/assets/midbg.gif) 0 0 repeat !important;
+}
+
+body {
+  background: transparent url(/assets/navbg-t.png) 0 0 repeat-x !important;
+}
+
 nav {
   float: right;
 }
@@ -30,6 +38,15 @@ h1 a {
   text-fill-color: #fff;
   text-stroke-color: #2ba6cb;
   text-stroke-width: 1px;
+}
+
+nav.subheader {
+  color: #fff;
+  margin-top: 20px;
+}
+
+nav em {
+  margin-right: 10px;
 }
 
 ul, li {
