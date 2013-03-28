@@ -1,6 +1,6 @@
 <h2><%= @product.name %></h2>
 <% admins_only do %>
-  <h5>Admin Actions:</h5>
+  Admin:
   <ul class="button-group">
     <li> <%= link_to "Edit", edit_product_path(@product), :class => "small button admin" %></li>
     <li> <%= link_to "Delete",product_path(@product),:method => :delete,  :confirm => "Are you sure you want to delete '" + @product.name + "'?", :class => "small button admin" %></li>

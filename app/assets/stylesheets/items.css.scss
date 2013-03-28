@@ -36,3 +36,21 @@ h3 {
   right: 15px;
   top: 5px;
 }
+
+#items li {
+  display: -webkit-flex;
+  display: flex;
+  min-height: 100px;
+  padding: 20px;
+}
+
+
+#items li input {
+  -webkit-align-self: center;
+  align-self: center;
+}
+
+#items p {
+  text-align: left;
+  min-width: 400px;
+}
