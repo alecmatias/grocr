@@ -1,7 +1,30 @@
+<%# productItemId = get_item_id_from_list_for_product_id() %>
+<% productItemId = nil %>
 <h2>Products</h2>
+<div class="row">
+  <div class="product_list">
+    <ul>
+      <% @products.each do |product| %>
+      <% productId = product.id %>
+      <li>
+	<img src="<%= product.image.url %>">
+	<%= link_to product.name, product %>
+	<% if (productItemId == nil) %>
+	<%= link_to "Add To List", 
 
-<ul>
-  <% @products.each do  |product| %>
-  <li><%= link_to product.name, product %></li>
-  <% end %>
-</ul>
+	    items_path(:product => productId),
+	      :method =>"post",
+	      :id => "add_product#{" + productId + "}",
+	      :class => "small button" %>
+	<% else %>
+	<%= link_to "Remove From List",
+	    item_path(productItemId),
+	                  :method =>"delete",
+	                  :id => "remove_product#{" + productItemId + "}",
+	                  :class => "small button" %>
+        <% end %>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

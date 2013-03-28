@@ -1,0 +1,63 @@
+<% if (!@product.image.exists?) %>
+<%   url = "/assets/ImageNotFound.gif" %>
+<% else %>
+<%   url = @product.image.url %>
+<% end %>
+<% productId = @product.id %>
+<%# productItemId = get_item_id_from_list_for_product_id() %>
+<% productItemId = nil %>
+<div class="product">
+  <div class="row">
+    <div class="product-main">
+      <div class="small-3 columns">
+	<nav>
+	  <div class="image">
+	    <img src='<%= url %>'>
+	  </div>
+	</nav>
+      </div>
+      <div class="small-5 columns">
+	<nav>
+	  <div class="product_description">
+	    <%= @product.description.html_safe %>
+	  </div>
+	  <p class="product_price">
+	    Price: <%= number_to_currency(@product.price) %>
+	  </p>
+
+	  <% if (productItemId == nil) %>
+	    <%= link_to "Add To List", 
+
+		items_path(:product => productId),
+	                   :method =>"post",
+	                   :id => "add_product#{" + productId + "}",
+	                   :class => "small button" %>
+	  <% else %>
+	    <%= link_to "Remove From List",
+		item_path(productItemId),
+	                  :method =>"delete",
+	                  :id => "remove_product#{" + productItemId + "}",
+	                  :class => "small button" %>
+          <% end %>
+	</nav>
+      </div>
+
+      <div class="small-1 columns">
+      </div>
+
+    </div>
+  </div>
+  <p/>
+
+  <div class="row">
+    <div class="product_more_info">
+      <div class="small-12 columns">
+	<ul>
+	  <li><strong>Size: </strong><%= @product.size %></li>
+	  <li><strong>UPC: </strong><%= @product.upc %></li>
+	  <li><strong>Manufacturered by: </strong><%= @product.manufacturer %></li>
+	</ul>
+      </div>
+    </div>
+  </div>
+</div>

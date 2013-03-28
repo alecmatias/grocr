@@ -29,6 +29,11 @@ nav {
   color: #fff;
 }
 
+.button.admin {
+  background-color: #f9f;
+  color: #000;
+}
+
 h1 a {
   font-family: 'Leckerli One', cursive !important;
   font-size: 1.2em;
@@ -67,10 +72,6 @@ ul, li {
     *zoom: 1;
 }
 
-.user-list-view {
-
-}
-
 .list-layout {
   background: #fff;
   border: 1px solid #888;
@@ -107,4 +108,27 @@ ul, li {
   text-align: center;
   padding: 10px;
   font-weight: 300;
+}
+
+.admin-actions {
+  position: absolute;
+  left: 15px;
+  top: 5px;
+}
+
+input[type=checkbox]
+{
+  float: left;
+  -ms-transform: scale(3); /* IE */
+  -moz-transform: scale(3); /* FF */
+  -webkit-transform: scale(3); /* Safari and Chrome */
+  -o-transform: scale(3); /* Opera */
+  padding: 10px;
+}
+
+.image img {
+  float: left;
+  max-width: 80px;
+  max-height: 80px;
+  margin-left: 35px;
 }
