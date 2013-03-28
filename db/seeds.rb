@@ -11,7 +11,7 @@ admin_user.admin = true
 admin_user.save!
 #admin_user.confirm!
 
-Product.create(
+product = Product.new(
                :name => "Brawny Paper Towels",
                :manufacturer => "Georgia Pacific",
                :price => "$24.93",
@@ -25,8 +25,11 @@ Product.create(
                "<li>Ships in Certified Frustration-Free Packaging</li>" +
                "</ul>"
                )
+product.image = File.open('spec/fixtures/Brawny-Giant-Rolls.jpg')
+product.save!
 
-Product.create(
+
+product = Product.new(
                :name => "Bounty Paper Towels",
                :manufacturer => "Bounty",
                :price => "30.99",
@@ -40,8 +43,10 @@ Product.create(
                "<li>Ships in Certified Frustration-Free Packaging</li>" +
                "</ul>"
                )
+product.image = File.open('spec/fixtures/Bounty-Paper-Towels.jpg')
+product.save!
 
-Product.create(
+product = Product.new(
                :name => "Scott Paper Towels",
                :manufacturer => "Scott",
                :price => "8.79",
@@ -55,3 +60,5 @@ Product.create(
                "<li>Packaging may vary from image shown</li>" +
                "</ul>"
                )
+product.image = File.open('spec/fixtures/Scott-Naturals.jpg')
+product.save!
