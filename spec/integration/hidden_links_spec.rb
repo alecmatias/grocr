@@ -44,11 +44,11 @@ feature "hidden links" do
     end
     scenario "can see the Edit Product link" do
       visit product_path(product)
-      assert_link_for "Edit Product"
+      assert_link_for "Edit"
     end
     scenario "can see the Delete Product link" do
       visit product_path(product)
-      assert_link_for "Delete Product"
+      assert_link_for "Delete"
     end
   end
 

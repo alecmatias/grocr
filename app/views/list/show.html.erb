@@ -1,0 +1,42 @@
+<p>
+  <%= link_to "Add an Item to your list", new_item_path %>
+</p>
+<p>
+  <%= link_to "List products", "/products" %>
+</p>
+<p>
+  <% admins_only do %>
+    <%= link_to "Add a new product", new_product_path %>
+  <% end %>
+</p>
+<br/>
+<h3>Items</h3>
+<%= form_tag remove_items_path, :method => :delete do %>
+  <table id="items">
+    <thead>
+      <th></th>
+      <th>Item ID</th>
+      <th>Product ID</th>
+      <th>Quantity</th>
+    </thead>
+    <tbody>
+      <% current_user.items.each do |item| %>
+        <tr class='<%= cycle("odd", "even") %>' id='item_<%= item.id %>'>
+          <td>
+            <%= check_box_tag "items[#{item.product_id}]", "#{item.id}" %>
+          </td>
+          <td>
+            <%= item.id %>
+          </td>
+          <td>
+            <%= link_to item.product_id, item %>
+          </td>
+          <td>
+            <%= item.quantity %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= submit_tag "Remove Checked" %>
+<% end %>

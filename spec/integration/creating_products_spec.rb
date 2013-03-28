@@ -14,9 +14,9 @@ feature 'Creating Products'  do
     fill_in 'Price', :with => '5.89'
     fill_in 'Size', :with => '28 oz'
     fill_in 'Description', :with => 'Yummy tasty peanut butter'
-    attach_file "Image", "spec/fixtures/peanut_butter.jpg"
-    click_button 'Create Product'
-    page.should have_content('Product has been created')
+    attach_file "image", "spec/fixtures/peanut_butter.jpg"
+    click_button "Create Product"
+    page.should have_content("'Peanut Butter Creamy' has been created")
 #    within ("#product .image") do
       page.should have_content("peanut_butter.jpg")
 #    end

@@ -14,30 +14,54 @@ admin_user.admin = true
 admin_user.save!
 #admin_user.confirm!
 
-Product.create(
-               :name => "Seeded Product 1",
-               :manufacturer => "M1",
-               :price => "$3.69",
-               :size  => "large",
+product = Product.new(
+               :name => "Brawny Paper Towels",
+               :manufacturer => "Georgia Pacific",
+               :price => "$24.93",
+               :size  => "20 rolls",
                :upc => "324234234242",
-               :description => "Product number one!"
+               :description => "<ul>" +
+               "<li>20 giant rolls = 30 regular rolls</li>" +
+               "<li> 69 sheets per roll</li>" +
+               "<li>2 ply</li>" +
+               "<li>Scrubs tough messes and soaks up spills</li>" +
+               "<li>Ships in Certified Frustration-Free Packaging</li>" +
+               "</ul>"
                )
+product.image = File.open('spec/fixtures/Brawny-Giant-Rolls.jpg')
+product.save!
 
-Product.create(
-               :name => "Seeded Product 2",
-               :manufacturer => "M2",
-               :price => "5.99",
-               :size  => "medium",
+
+product = Product.new(
+               :name => "Bounty Paper Towels",
+               :manufacturer => "Bounty",
+               :price => "30.99",
+               :size  => "15 rolls",
                :upc => "78686876876",
-               :description => "Product number two!"
+               :description => "<ul>" + 
+               "<li>20 giant rolls = 30 regular rolls</li>" +
+               "<li>69 sheets per roll</li>" +
+               "<li>2 ply</li>" +
+               "<li>Scrubs tough messes and soaks up spills</li>" +
+               "<li>Ships in Certified Frustration-Free Packaging</li>" +
+               "</ul>"
                )
+product.image = File.open('spec/fixtures/Bounty-Paper-Towels.jpg')
+product.save!
 
-Product.create(
-               :name => "Seeded Product 3",
-               :manufacturer => "M3",
-               :price => "$19.99",
-               :size  => "small",
+product = Product.new(
+               :name => "Scott Paper Towels",
+               :manufacturer => "Scott",
+               :price => "8.79",
+               :size  => "6 rolls",
                :upc => "65466546456",
-               :description => "Product number three!"
+               :description => "<ul>" +
+               "<li>60% Recycled 100% absorbent</li>" +
+               "<li><Durable for tough messes/li>" +
+               "<li>Choose-A-Size; Because messes don't come in one size fits all</li>" +
+               "<li>Has earned the green good housekeeping seal</li>" +
+               "<li>Packaging may vary from image shown</li>" +
+               "</ul>"
                )
-
+product.image = File.open('spec/fixtures/Scott-Naturals.jpg')
+product.save!

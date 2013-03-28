@@ -1,14 +1,30 @@
 <h2>Add an Item</h2>
 
-<%= form_for(@item) do |f| %>
-  <p>
-    <%= f.label :product_id , "Product ID"%><br/>
-    <%= f.text_field :product_id %>
-  </p>
-
-  <p>
-      <%= f.label :quantity %><br/>
-      <%= f.text_field :quantity %>
-  </p>
-  <%= f.submit %>
-<% end %>
+  <table id="productlist">
+    <thead>
+      <th></th>
+      <th>Product Name</th>
+      <th>Quantity</th>
+    </thead>
+    <tbody>
+      <% @products.each do |p|  %>
+        <tr class='<%= cycle("odd", "even") %>' id='product_<%= p.id %>'>
+          <td>
+            <% if item = @list.has_item?(p) %>
+              <%= link_to "Remove", item_path(item), :method => "delete",
+              :id => "remove_product#{p.id}" %>
+            <% else %>
+              <%= link_to "Add", items_path(:product => p), :method => "post",
+              :id => "add_product#{p.id}" %>
+            <% end %>
+          </td>
+          <td>
+            <strong><%= p.name %></strong><br>
+            <%= p.description %>
+          </td>
+          <td>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>

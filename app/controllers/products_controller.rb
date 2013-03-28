@@ -14,7 +14,7 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(params[:product])
     if @product.save
-      flash[:notice] = "Product has been created."
+      flash[:notice] = "'" + @product.name + "' has been created."
       redirect_to @product
     else
       #
@@ -32,30 +32,31 @@ class ProductsController < ApplicationController
   def update
     @product = Product.find(params[:id])
     @product.update_attributes(params[:product])
-    flash[:notice] = "Product has been updated."
+    flash[:notice] = "'" + @product.name + "' has been updated."
     redirect_to @product
   end
 
   def destroy
     @product = Product.find(params[:id])
     @product.destroy
-    flash[:notice] = "Product has been deleted."
+    flash[:notice] = "'" + @product.name + "' has been deleted."
     redirect_to products_path
   end
 
   def find_product
     @product = Product.find(params[:id])
     rescue ActiveRecord::RecordNotFound
-    flash[:alert] = "The product you were looking for could not be found."
+    flash[:alert] = "A product with name or id '" + params[:id] + "' could not be found."
     redirect_to products_path
   end
 
   private
-    def authorize_admin!
-      authenticate_user!
-      unless current_user.admin?
-        flash[:alert] = "You must be an admin to do that."
-        redirect_to root_path
-      end
+  def authorize_admin!
+    authenticate_user!
+    unless current_user.admin?
+      flash[:alert] = "You must be an admin to do that."
+      redirect_to root_path
     end
+  end
+
 end
