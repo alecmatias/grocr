@@ -11,12 +11,23 @@
 }
 
 .product_description {
-  background-color: #ccc;
+  background-color: #ddd;
 }
 
 .product_description li {
-  margin-left: 40px;
-	text-indent: 10px;
+  margin-left: 20px;
+  text-indent: 0px;
+  font-size: 90%;
+}
+
+.product_more_info li {
+ margin-left:30px;
+ text-indent:10px;
+ list-style-type: none;
+}
+
+.product_price p {
+  font-color:'blue';
 }
 
 .even {
@@ -34,5 +45,3 @@
   align-self: center;
   margin: 0;
 }
-
-

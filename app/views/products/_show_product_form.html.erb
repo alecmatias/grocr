@@ -1,33 +1,60 @@
-<% if @product.image.exists? %>
-  <div id="product" class="image">
-    <img src='<%= @product.image.url %>'>
-    <p>
-      <%= link_to File.basename(@product.image.path),@product.image.url %>
-    </p>
-    <p><small><%= number_to_human_size(@product.image.size) %>
-	(<%= @product.image.content_type %>)</small></p>
-  </div>
+<% if (!@product.image.exists?) %>
+<%   url = "/assets/ImageNotFound.gif" %>
+<% else %>
+<%   url = @product.image.url %>
 <% end %>
-<p>
-  <div class="product">
-    <div class="product_description_header">
-      <strong>Description:</strong>
-    </div>
-    <div class="product_description">
-      <p>
-	<%= @product.description.html_safe %>
-      </p>
-    </div>
-    <p class="product_price">
-      Price: <%= number_to_currency(@product.price) %>
-    </p>
-    <div class="product_more_info">
-      <p>
-	Size: <%= @product.size %>
-      <p>
-	UPC: <%= @product.upc %>
-      <p>
-	Manufacturered by: <%= @product.manufacturer %>
+<% productId = @product.id %>
+
+<div class="product">
+  <div class="row">
+    <div class="product-main">
+      <div class="small-3 columns">
+	<nav>
+	  <div class="image">
+	    <img src='<%= url %>'>
+	  </div>
+	</nav>
+      </div>
+      <div class="small-5 columns">
+	<nav>
+	  <div class="product_description">
+	    <%= @product.description.html_safe %>
+	  </div>
+	  <p class="product_price">
+	    Price: <%= number_to_currency(@product.price) %>
+	  </p>
+
+	 <%= link_to "Add To List", 
+
+	     items_path(:product => productId),
+	 :method =>"post",
+	 :id => "add_product#{" + productId + "}",
+	 :class => "small button" %>
+
+	 <%= link_to "Remove From List",
+	     item_path(:product => productId),
+	 :method =>"delete",
+	 :id => "remove_product#{" + productId + "}",
+	 :class => "small button" %>
+	</nav>
+      </div>
+
+      <div class="small-1 columns">
+      </div>
+
     </div>
   </div>
-</p>
+  <p/>
+
+  <div class="row">
+    <div class="product_more_info">
+      <div class="small-12 columns">
+	<ul>
+	  <li><strong>Size:</strong><%= @product.size %></li>
+	  <li><strong>UPC:</strong><%= @product.upc %></li>
+	  <li><strong>Manufacturered by:</strong><%= @product.manufacturer %></li>
+	</ul>
+      </div>
+    </div>
+  </div>
+</div>

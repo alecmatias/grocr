@@ -17,8 +17,5 @@ feature 'Creating Products'  do
     attach_file "image", "spec/fixtures/peanut_butter.jpg"
     click_button "Create Product"
     page.should have_content("'Peanut Butter Creamy' has been created")
-#    within ("#product .image") do
-      page.should have_content("peanut_butter.jpg")
-#    end
   end
 end
