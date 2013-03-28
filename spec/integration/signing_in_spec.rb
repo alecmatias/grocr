@@ -5,6 +5,7 @@ feature 'Signing in' do
   end
   scenario 'Signing in' do
     visit '/'
+    click_link "Sign in"
     fill_in 'Email', :with => "ticketee@example.com"
     fill_in 'Password', :with => "password"
     click_button "Sign in"
