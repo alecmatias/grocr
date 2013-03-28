@@ -14,10 +14,14 @@
         <ul id="items" class="list-layout">
           <% current_user.items.each do |item| %>
             <li class="cf" id='item_<%= item.id %>'>
-              <%= check_box_tag "items[#{item.product_id}]", "#{item.id}" %> |
-              <%= item.id %> |
-              <%= link_to item.product_id, item %> |
-              <%= item.quantity %>
+              <% product = Product.find(item.product_id) %>
+              <%= check_box_tag "items[#{product.id}]", "#{item.id}" %>
+              <%= product.manufacturer %> -
+              <%= link_to product.name, item %> -
+              $<%= product.price %>
+              <div class="image">
+                <img src='<%= product.image.url %>'>
+              </div>
             </li>
           <% end %>
         </ul>
