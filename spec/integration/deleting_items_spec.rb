@@ -8,11 +8,12 @@ feature "Deleting items" do
   end
 
   scenario "Removing an individual item" do
-    Factory(:item, :list => user.list, :product_id => 101, :quantity => 12)
+    p1 = Factory(:product)
+    Factory(:item, :list => user.list, :product_id => p1.id, :quantity => 12)
     visit "/"
-    click_link "101"
+    click_link "#{p1.name}"
     click_link "Remove Item"
-    page.should have_content("Item 101 has been removed.")
+    page.should have_content("Item #{p1.id} has been removed.")
   end
 
   scenario "Deleting multiple items from your list using the index page" do
