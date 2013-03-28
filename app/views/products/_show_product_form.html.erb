@@ -24,21 +24,6 @@
 	  <p class="product_price">
 	    Price: <%= number_to_currency(@product.price) %>
 	  </p>
-
-	  <% if (productItemId == nil) %>
-	    <%= link_to "Add To List", 
-
-		items_path(:product => productId),
-	                   :method =>"post",
-	                   :id => "add_product#{" + productId + "}",
-	                   :class => "small button" %>
-	  <% else %>
-	    <%= link_to "Remove From List",
-		item_path(productItemId),
-	                  :method =>"delete",
-	                  :id => "remove_product#{" + productItemId + "}",
-	                  :class => "small button" %>
-          <% end %>
 	</nav>
       </div>
 
