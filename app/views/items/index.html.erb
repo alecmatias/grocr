@@ -1,7 +1,8 @@
 <div class="small-12 columns small-centered user-list-view">
   <% admins_only do %>
-    <p><%= link_to "List products", "/products", :class => "small button radius" %></p>
-    <p><%= link_to "Add a new product", new_product_path %></p>
+    <h5>Admin Actions:</h5>
+    <%= link_to "List products", "/products", :class => "small button radius admin" %>
+    <%= link_to "Add a new product", new_product_path, :class => "small button admin" %>
   <% end %>
   <% if user_signed_in? %>
     <% if current_user.items.length == 0 %>

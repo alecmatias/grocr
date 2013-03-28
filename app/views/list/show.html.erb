@@ -6,7 +6,8 @@
 </p>
 <p>
   <% admins_only do %>
-    <%= link_to "Add a new product", new_product_path %>
+    <h5>Admin Actions:</h5>
+    <%= link_to "Add a new product", new_product_path, :class => "button small admin" %>
   <% end %>
 </p>
 <br/>

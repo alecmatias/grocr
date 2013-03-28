@@ -29,6 +29,11 @@ nav {
   color: #fff;
 }
 
+.button.admin {
+  background-color: #f9f;
+  color: #000;
+}
+
 h1 a {
   font-family: 'Leckerli One', cursive !important;
   font-size: 1.2em;
