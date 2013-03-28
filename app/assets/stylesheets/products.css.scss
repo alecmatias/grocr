@@ -3,13 +3,25 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .image img { height:200px }
-.product_description_header strong {font-weight: boulder;}
 .product_description 
 		     {
-			background-color:#cccccc;
+			background-color:#dddddd;
 		     }
 .product_description li
 		     {
 			margin-left:40px;
 			text-indent:10px;
+			font-size:90%;
 		     }
+
+.product_more_info li
+		   {
+		   margin-left:30px;
+		   text-indent:10px;
+		   list-style-type: none;
+		   }
+
+.product_price p
+	       {
+	       font-color:'blue';
+	       }
