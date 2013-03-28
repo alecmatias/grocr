@@ -8,14 +8,14 @@
 <div class="product">
   <div class="row">
     <div class="product-main">
-      <div class="small-5 columns">
+      <div class="small-3 columns">
 	<nav>
 	  <div class="image">
 	    <img src='<%= url %>'>
 	  </div>
 	</nav>
       </div>
-      <div class="small-6 columns">
+      <div class="small-5 columns">
 	<nav>
 	  <div class="product_description">
 	    <%= @product.description.html_safe %>
@@ -23,9 +23,10 @@
 	  <p class="product_price">
 	    Price: <%= number_to_currency(@product.price) %>
 	  </p>
-	</nav>
+
 	 <%= link_to "Add To List", 
-	     item_path(:product => productId),
+
+	     items_path(:product => productId),
 	 :method =>"post",
 	 :id => "add_product#{" + productId + "}",
 	 :class => "small button" %>
@@ -35,10 +36,12 @@
 	 :method =>"delete",
 	 :id => "remove_product#{" + productId + "}",
 	 :class => "small button" %>
-
+	</nav>
       </div>
+
       <div class="small-1 columns">
       </div>
+
     </div>
   </div>
   <p/>
