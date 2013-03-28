@@ -16,3 +16,12 @@
 //= require_tree .
 
 $(document).foundation();
+$(function() {
+  $('[data-remote][data-replace]')
+    .data('type', 'html')
+    .on('ajax:success', function(event, data) {
+      var $this = $(this);
+      $($this.data('replace')).html(data);
+      $this.trigger('ajax:replaced');
+    });
+});

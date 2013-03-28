@@ -13,7 +13,7 @@
   	<!-- Set the viewport width to device width for mobile -->
   	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  	<title><%= content_for?(:title) ? yield(:title) : "Grocr" %></title>
+  	<title><%= content_for?(:title) ? yield(:title) : "WishE" %></title>
 
   	<%= stylesheet_link_tag    "application" %>
   	<%= javascript_include_tag "vendor/custom.modernizr" %>
@@ -22,25 +22,29 @@
 
   <body>
     <div class="row">
-      <div class="small-9 columns"><h1><%= link_to "grocr", root_url %></h1></div>
-      <div class="small-3 columns">
+      <div class="small-6 columns"><h1><%= link_to "WishE", root_url %></h1></div>
+      <div class="small-6 columns">
         <nav>
           <% if user_signed_in? %>
             Signed in as <%= current_user.email %>
-            <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+            <%= link_to "Sign out", destroy_user_session_path, method: :delete, :class => "small button" %>
           <% else %>
             <ul class="button-group">
-              <li><%= link_to "Sign up", new_user_registration_path, :class => "small button" %></li>
-              <li><%= link_to "Sign in", new_user_session_path, :class => "small button" %></li>
+              <li><%= link_to "Sign up", new_user_registration_path, :remote => true, :data => { :replace => "#modal-container", "reveal-id" => "myModal" }, :class => "small button" %></li>
+              <li><%= link_to "Sign in", new_user_session_path, :remote => true, :data => { :replace => "#modal-container", "reveal-id" => "myModal" }, :class => "small button" %></li>
             </ul>
           <% end %>
         </nav>
+        <div id="myModal" class="reveal-modal">
+          <a class="close-reveal-modal">&#215;</a>
+          <div id="modal-container"></div>
+        </div>
       </div>
     </div>
     <div class="row">
       <div class="small-12 columns">
         <% flash.each do |key, value| %>
-          <div class='flash' id='<%= key %>'>
+          <div class='flash <%= key %> label radius' id='<%= key %>'>
             <%= value %>
           </div>
         <% end %>

@@ -1,5 +1,5 @@
 Grocr::Application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => { :registrations => "registrations", :sessions => "sessions" }
 
   resources :items do
     collection do
@@ -66,4 +66,5 @@ Grocr::Application.routes.draw do
   root :to => "items#index"
   resources :items
   resources :products
+  resources :lists
 end
