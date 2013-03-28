@@ -2,14 +2,37 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.image img { height:200px }
-.product_description_header strong {font-weight: boulder;}
-.product_description 
-		     {
-			background-color:#cccccc;
-		     }
-.product_description li
-		     {
-			margin-left:40px;
-			text-indent:10px;
-		     }
+.image img {
+  height:200px
+}
+
+.product_description_header strong {
+  font-weight: boulder;
+}
+
+.product_description {
+  background-color: #ccc;
+}
+
+.product_description li {
+  margin-left: 40px;
+	text-indent: 10px;
+}
+
+.even {
+  background: #fafafa;
+}
+
+#productlist .small-1 {
+  display: -webkit-flex;
+  display: flex;
+  min-height: 105px;
+}
+
+#productlist .small-1 a {
+  -webkit-align-self: center;
+  align-self: center;
+  margin: 0;
+}
+
+

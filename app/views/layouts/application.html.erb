@@ -16,13 +16,14 @@
   	<title><%= content_for?(:title) ? yield(:title) : "WishE" %></title>
 
   	<%= stylesheet_link_tag    "application" %>
+    <link href='http://fonts.googleapis.com/css?family=Leckerli+One' rel='stylesheet' type='text/css'>
   	<%= javascript_include_tag "vendor/custom.modernizr" %>
     <%= csrf_meta_tags %>
   </head>
 
   <body>
     <div class="row">
-      <div class="small-6 columns"><h1><%= link_to "WishE", root_url %></h1></div>
+      <div class="small-6 columns"><h1><%= link_to "WishElist", root_url %></h1></div>
       <div class="small-6 columns">
         <nav>
           <% if user_signed_in? %>

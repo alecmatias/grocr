@@ -10,15 +10,9 @@
   <% end %>
 </p>
 <br/>
-<h3>Items</h3>
+<h3>Your WishElist</h3>
 <%= form_tag remove_items_path, :method => :delete do %>
   <table id="items">
-    <thead>
-      <th></th>
-      <th>Item ID</th>
-      <th>Product ID</th>
-      <th>Quantity</th>
-    </thead>
     <tbody>
       <% current_user.items.each do |item| %>
         <tr class='<%= cycle("odd", "even") %>' id='item_<%= item.id %>'>

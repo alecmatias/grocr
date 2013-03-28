@@ -20,3 +20,32 @@ nav {
   background-color: #5da423;
   color: #fff;
 }
+
+h1 a {
+  font-family: 'Leckerli One', cursive !important;
+  font-size: 1.2em;
+  -webkit-text-fill-color: #fff;
+  -webkit-text-stroke-color: #2ba6cb;
+  -webkit-text-stroke-width: 1px;
+  text-fill-color: #fff;
+  text-stroke-color: #2ba6cb;
+  text-stroke-width: 1px;
+}
+
+ul, li {
+  list-style-type: none;
+}
+
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.cf:after {
+    clear: both;
+}
+
+.cf {
+    *zoom: 1;
+}

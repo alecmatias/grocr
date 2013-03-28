@@ -20,13 +20,11 @@ product = Product.new(
                :price => "$24.93",
                :size  => "20 rolls",
                :upc => "324234234242",
-               :description => "<ul>" +
-               "<li>20 giant rolls = 30 regular rolls</li>" +
-               "<li> 69 sheets per roll</li>" +
-               "<li>2 ply</li>" +
-               "<li>Scrubs tough messes and soaks up spills</li>" +
-               "<li>Ships in Certified Frustration-Free Packaging</li>" +
-               "</ul>"
+               :description => "20 giant rolls = 30 regular rolls; " +
+               " 69 sheets per roll; " +
+               "2 ply; " +
+               "Scrubs tough messes and soaks up spills; " +
+               "Ships in Certified Frustration-Free Packaging;"
                )
 product.image = File.open('spec/fixtures/Brawny-Giant-Rolls.jpg')
 product.save!
@@ -38,13 +36,11 @@ product = Product.new(
                :price => "30.99",
                :size  => "15 rolls",
                :upc => "78686876876",
-               :description => "<ul>" + 
-               "<li>20 giant rolls = 30 regular rolls</li>" +
-               "<li>69 sheets per roll</li>" +
-               "<li>2 ply</li>" +
-               "<li>Scrubs tough messes and soaks up spills</li>" +
-               "<li>Ships in Certified Frustration-Free Packaging</li>" +
-               "</ul>"
+               :description => "20 giant rolls = 30 regular rolls; " +
+               "69 sheets per roll; " +
+               "2 ply; " +
+               "Scrubs tough messes and soaks up spills; " +
+               "Ships in Certified Frustration-Free Packaging;"
                )
 product.image = File.open('spec/fixtures/Bounty-Paper-Towels.jpg')
 product.save!
@@ -55,13 +51,11 @@ product = Product.new(
                :price => "8.79",
                :size  => "6 rolls",
                :upc => "65466546456",
-               :description => "<ul>" +
-               "<li>60% Recycled 100% absorbent</li>" +
-               "<li><Durable for tough messes/li>" +
-               "<li>Choose-A-Size; Because messes don't come in one size fits all</li>" +
-               "<li>Has earned the green good housekeeping seal</li>" +
-               "<li>Packaging may vary from image shown</li>" +
-               "</ul>"
+               :description => "60% Recycled 100% absorbent; " +
+               "<Durable for tough messes/li>" +
+               "Choose-A-Size; Because messes don't come in one size fits all; " +
+               "Has earned the green good housekeeping seal; " +
+               "Packaging may vary from image shown;"
                )
 product.image = File.open('spec/fixtures/Scott-Naturals.jpg')
 product.save!
