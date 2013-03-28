@@ -1,10 +1,10 @@
 require 'spec_helper'
 
 feature "Seeding database" do
-  let!(:user) {Factory(:user)}
+  let!(:admin_user) {Factory(:admin_user)}
 
   before do
-    sign_in_as!(user)
+    sign_in_as!(admin_user)
   end
 
   scenario "List a product" do
