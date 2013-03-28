@@ -17,6 +17,8 @@
 *.swp
 *.swo
 
+/public/system/*
+
 # OS generated files #
 ######################
 .DS_Store
