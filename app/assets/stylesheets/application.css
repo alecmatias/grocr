@@ -116,7 +116,7 @@ ul, li {
   top: 5px;
 }
 
-input[type=checkbox]
+#items input[type=checkbox]
 {
   float: left;
   -ms-transform: scale(3); /* IE */
