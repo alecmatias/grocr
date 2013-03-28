@@ -10,8 +10,8 @@ feature "Deleting products" do
     Factory(:product, :name => "Pepsi")
     visit "/products"
     click_link "Pepsi"
-    click_link "Delete Product"
-    page.should have_content("Product has been deleted.")
+    click_link "Delete"
+    page.should have_content("'Pepsi' has been deleted.")
     visit "/products"
     page.should_not have_content("Pepsi")
   end

@@ -31,7 +31,6 @@ class ProductsController < ApplicationController
 
   def update
     @product = Product.find(params[:id])
-    @product.price = @product.price * 100
     @product.update_attributes(params[:product])
     flash[:notice] = "'" + @product.name + "' has been updated."
     redirect_to @product
@@ -47,15 +46,9 @@ class ProductsController < ApplicationController
   def find_product
     @product = Product.find(params[:id])
     rescue ActiveRecord::RecordNotFound
-    flash[:alert] = "'" + @product.name + "' could not be found."
+    flash[:alert] = "A product with name or id '" + params[:id] + "' could not be found."
     redirect_to products_path
   end
-
-  def format_price
-    formatted_price = Money.new(self.price, "USD")
-    formatted_price
-  end
-
 
   private
   def authorize_admin!

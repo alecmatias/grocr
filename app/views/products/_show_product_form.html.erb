@@ -1,5 +1,4 @@
 <% if @product.image.exists? %>
-  <h3>Attached Image</h3>
   <div id="product" class="image">
     <img src='<%= @product.image.url %>'>
     <p>
@@ -10,23 +9,25 @@
   </div>
 <% end %>
 <p>
-<div class="product">
+  <div class="product">
     <div class="product_description_header">
-      Description:
+      <strong>Description:</strong>
     </div>
     <div class="product_description">
-      <%= @product.description.html_safe %>
+      <p>
+	<%= @product.description.html_safe %>
+      </p>
     </div>
-  </p>
-  <p class="product_price">
-    Price: <%= number_to_currency(@product.price) %>
-  </p>
-  <div class="product_more_info">
-    <p>
-      Size: <%= @product.size %>
-    <p>
-      UPC: <%= @product.upc %>
-    <p>
-      Manufacturered by: <%= @product.manufacturer %>
+    <p class="product_price">
+      Price: <%= number_to_currency(@product.price) %>
+    </p>
+    <div class="product_more_info">
+      <p>
+	Size: <%= @product.size %>
+      <p>
+	UPC: <%= @product.upc %>
+      <p>
+	Manufacturered by: <%= @product.manufacturer %>
+    </div>
   </div>
-</div>
+</p>
