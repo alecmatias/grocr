@@ -9,7 +9,6 @@ gem 'sqlite3'
 gem 'devise', '2.1.0'
 gem 'email_spec', '1.2.1'
 
-
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -32,7 +31,7 @@ gem 'jquery-rails'
 # gem 'jbuilder'
 
 # Use unicorn as the app server
-# gem 'unicorn'
+gem 'unicorn'
 
 # Deploy with Capistrano
 # gem 'capistrano'
