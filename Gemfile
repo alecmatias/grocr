@@ -52,6 +52,7 @@ group :test do
   gem 'factory_girl', '2.6.4'
   gem 'capybara', '1.1.2'
   gem 'factory_girl', '2.6.4'
+  gem 'simplecov', '~> 0.7.1'
 end
 
 gem 'rb-readline'
