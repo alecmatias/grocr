@@ -99,6 +99,7 @@ GEM
       activesupport (>= 2.3.2)
       cocaine (>= 0.0.2)
       mime-types
+    pg (0.15.0)
     polyglot (0.3.3)
     pry (0.9.12)
       coderay (~> 1.0.5)
@@ -210,6 +211,7 @@ DEPENDENCIES
   jquery-rails
   launchy
   paperclip (= 2.7.0)
+  pg
   pry-debugger
   pry-doc
   pry-rails

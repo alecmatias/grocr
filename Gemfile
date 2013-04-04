@@ -5,7 +5,6 @@ gem 'rails', '3.2.12'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
 gem 'devise', '2.1.0'
 gem 'email_spec', '1.2.1'
 
@@ -31,7 +30,10 @@ gem 'jquery-rails'
 # gem 'jbuilder'
 
 # Use unicorn as the app server
-gem 'unicorn'
+group :production do
+  gem 'unicorn'
+  gem 'pg'
+end
 
 # Deploy with Capistrano
 # gem 'capistrano'
@@ -40,6 +42,7 @@ gem 'unicorn'
 # gem 'debugger'
 
 group :test, :development do
+  gem 'sqlite3'
   gem 'rspec-rails', '~> 2.11'
   gem 'launchy'
   gem 'pry-debugger'
